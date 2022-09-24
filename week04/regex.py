@@ -5,9 +5,10 @@ def find_name(line):
   
     pattern = r"^[aA-zZ\s]+$"
     #pattern = r"\d{1,2}/\d{1,2}/\d{2,4}"
+    #original pattern from Z's code
     result = re.findall(pattern,line)
 
-    pattern=r'[A-Z]\w'
+    pattern=r'[A-Z]\w\B'
     result = result + re.findall(pattern,line)
     return result
 
