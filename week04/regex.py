@@ -2,10 +2,12 @@ import re
 
 
 def find_name(line):
-    pattern = r"\d{1,2}/\d{1,2}/\d{2,4}"
+  
+    pattern = r"^[aA-zZ\s]+$"
+    #pattern = r"\d{1,2}/\d{1,2}/\d{2,4}"
     result = re.findall(pattern,line)
 
-    pattern=r'(October|Oct|November|Nov)( [0-9]{1,2}, [0-9]{4})'
+    pattern=r'[A-Z]\w'
     result = result + re.findall(pattern,line)
     return result
 
