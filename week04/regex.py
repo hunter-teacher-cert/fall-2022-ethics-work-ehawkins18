@@ -9,8 +9,20 @@ def find_name(line):
 
     pattern=r'[A-Z]\w*\s[A-Z]\w*'
     result = re.findall(pattern,line)
-    return result
+  
+    pattern=r'Dr.\s[A-Z]\w*'
+    result = result + re.findall(pattern,line)
 
+    pattern=r'Mr.\s[A-Z]\w*'
+    result = result + re.findall(pattern,line)
+  
+    pattern=r'Mrs.\s[A-Z]\w*'
+    result = result + re.findall(pattern,line)
+
+    pattern=r'Ms.\s[A-Z]\w*'
+    result = result + re.findall(pattern,line)
+  
+    return result
 
 f = open("names.txt")
 for line in f.readlines():
