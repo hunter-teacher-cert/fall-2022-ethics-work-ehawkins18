@@ -19,7 +19,7 @@ def find_name(line):
     pattern=r'Mrs.\s[A-Z]\w*'
     result = result + re.findall(pattern,line)
 
-    pattern=r'Ms.\s[A-Z]\w*'
+    pattern=r'Ms.\s[A-Z]\.\s[A-Z]\w*'
     result = result + re.findall(pattern,line)
   
     return result
