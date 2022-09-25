@@ -7,7 +7,7 @@ def find_name(line):
     #original pattern from Z's code
    # result = re.findall(pattern,line)
 
-    pattern=r'[A-Z]\w*[\s|.]{1,2}'
+    pattern=r'[A-Z]\w*\s[A-Z]\w*'
     result = re.findall(pattern,line)
     return result
 
