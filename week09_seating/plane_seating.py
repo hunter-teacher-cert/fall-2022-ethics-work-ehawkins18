@@ -1,3 +1,6 @@
+#file: plane_seating.py
+#by: Ed Hawkins
+
 """This program simulates the sales of tickets for a specific flight.
 A plane is represented by a list. Each element of the list is a row in
 the plane (with plane[0] being the front) and reach row is also a
@@ -85,6 +88,7 @@ def get_avail_seats(plane,economy_sold):
            and removes the number of economy_sold seats
     """
     avail = 0;
+    pair_avail = 0;
     for r in plane:
         for c in r:
             if c == "avail" or c == "win":
@@ -192,9 +196,10 @@ def purchase_economy_block(plane,economy_sold,number,name):
     available, store the name and number of seats purchased in the
     economy_sold dictionary and return the new dictionary
     """
-    seats_avail = get_total_seats(plane)
-    seats_avail = seats_avail - get_number_economy_sold(economy_sold)
-
+#    seats_avail = get_total_seats(plane)
+#    seats_avail = seats_avail - get_number_economy_sold(economy_sold)
+    seats_avail = get_avail_seats(plane, economy_sold)
+    
     if seats_avail >= number:
         economy_sold[name]=number
     return economy_sold
@@ -214,25 +219,29 @@ def fill_plane(plane):
 
     # these are for naming the pasengers and families by
     # appending a number to either "ep" for economy plus or "u" for unassigned economy seat
+    # add "fu" for family unassigned
     ep_number=1
     u_number=1
+    fu_number=1
 
     # MODIFY THIS
     # you will probably want to change parts of this
     # for example, when to stop purchases, the probabilities, maybe the size for the random
     # regular economy size
 
-    max_family_size = 3
+    max_family_size = 2
     while total_seats > 1:
         r = random.randrange(100)
-        if r > 30:
+        if r > 50:
             plane = purchase_economy_plus(plane,economy_sold,"ep-%d"%ep_number)
             ep_number = ep_number + 1
             total_seats = get_avail_seats(plane,economy_sold)
+        elif r>30:
+            economy_sold = purchase_economy_block(plane,economy_sold,2,"fu-%d"%fu_number)
+            fu_number = fu_number + 1
         else:
-            economy_sold = purchase_economy_block(plane,economy_sold,1+random.randrange(max_family_size),"u-%d"%u_number)
+            economy_sold = purchase_economy_block(plane,economy_sold,1,"u-%d"%u_number)
             u_number = u_number + 1
-
         
     # once the plane reaches a certian seating capacity, assign
     # seats to the economy plus passengers
@@ -249,7 +258,9 @@ def fill_plane(plane):
     
 def main():
     plane = create_plane(10,5)
+    print(get_plane_string(plane))
     plane = fill_plane(plane)
     print(get_plane_string(plane))
 if __name__=="__main__":
     main()
+
