@@ -258,7 +258,7 @@ def fill_plane(plane):
     
 def main():
     plane = create_plane(10,5)
-    print(get_plane_string(plane))
+#   print(get_plane_string(plane))
     plane = fill_plane(plane)
     print(get_plane_string(plane))
 if __name__=="__main__":
