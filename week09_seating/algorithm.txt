@@ -1,0 +1,11 @@
+Name: Ed Hawkins
+File: Algorithm.md
+
+The algorithm I planned to implement would allow passengers to purchase economy seats that guarantee that groups of up to 4 people who can prove one of the previously listed reasons for the accomodation will be seated together as follows:
+Groups of 2 should be guaranteed to be seated next to each other. For groups of 3 or 4, it
+should be guaranteed that 2 will sit next to each other and the remaining 1 or 2 will be seated
+adjacent to them (either next to them or 1 row in forward or 1 row back).
+
+Upon implementing the algorithm, I found that I did not have time to develop code of this complexity. I chose to limit the accomodation to groups of 2 and seat them next to each other.
+
+I believe that if I were developing this software for an airline I would be able to successfully pitch management on making this accomodation. Pairs of adjacent economy seats would only be guaranteed for customers with documented need while space permitted, and planes would still be filled to capacity using (single) economy seats.  
