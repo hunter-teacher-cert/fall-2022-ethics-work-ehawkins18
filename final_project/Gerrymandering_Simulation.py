@@ -37,8 +37,8 @@ while elections < totalElectionTrials:
         totalRepublicanVotes += republicanVotes
         i += 1
 
-    democratTieVotes = districts * districtVoters - totalDemocratVotes
-    republicanTieVotes = districts * districtVoters - totalRepublicanVotes
+    democratTieVotes = int(districts * districtVoters/2 - totalDemocratVotes)
+    republicanTieVotes = int(districts * districtVoters/2 - totalRepublicanVotes)
 
     if democratTieVotes > republicanTieVotes:
         democraticDistricts += 1
