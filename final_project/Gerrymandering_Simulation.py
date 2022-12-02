@@ -18,7 +18,7 @@ districtVoters = int(input("How many voters are in each district? "))
 districts = int(input("How many districts would you like to create? "))
 totalElectionTrials = int(input("How many elections would you like to run? "))
 
-#loop to run election trials
+#loop to run general election trials
 while elections < totalElectionTrials:
 
 #declare and initialize variables to keep track of districts won
@@ -71,14 +71,13 @@ while elections < totalElectionTrials:
     print("Republican Districts Won = ", republicanDistricts)
     print("Democratic Districts Won = ", democraticDistricts)
     if republicanDistricts > democraticDistricts:
+        totalRepublicanWins += 1
         print("Republicans win the election.")
     else:
+        totalDemocratWins += 1
         print("Democrats win the election.") 
     print()
-    if democraticDistricts > republicanDistricts:
-        totalDemocratWins += 1
-    else:
-        totalRepublicanWins += 1
+    
     elections += 1
 
 #output overall results of simulation
