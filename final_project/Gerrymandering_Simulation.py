@@ -1,4 +1,5 @@
 #Gerrymandering Simulation
+#Code Component for Final Project
 #By Wayne Tobias and Ed Hawkins
 
 import random
@@ -85,6 +86,5 @@ print("Gerrymandering simulation results for",districts,"districts with",distric
 print("Total number of election simulations = ", totalElectionTrials)
 print("Total Democratic Wins = ", totalDemocratWins)
 print("Total Republican Wins = ", totalRepublicanWins)
-
 
 
